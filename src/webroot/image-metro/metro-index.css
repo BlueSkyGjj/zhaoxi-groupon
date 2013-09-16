@@ -1,0 +1,125 @@
+body {
+	margin: 0;
+	padding: 0;
+	background: url('bg.jpg') repeat-y;
+	font-family: 微软雅黑,simsun,sans-serif;
+}
+
+#wrapper {
+	width: 1244px;
+	margin: 70px auto 0px auto;
+	position: relative;
+}
+
+#header {
+	position: relative;
+	height: 100px;
+	margin-bottom: 30px;
+	color: white;
+}
+
+.logo {
+	width: 230px;
+	height: 100px;
+	margin-right: 83px;
+	float: left;
+	background-image: url('logo.png');
+}
+
+.login-opt {
+	width: 145px;
+	height: 100%;
+	float: right;
+	position: relative;
+	font-size: 20px;
+}
+
+.login-opt a {
+	text-decoration: none;
+	color: white;
+}
+
+.login-opt a:hover {
+	color: silver;
+}
+
+.login-opt .signup {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.login-opt .login {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+.city {
+	width: 165px;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+
+.city-name {
+	position: absolute;
+	font-size: 30px;
+	left: 0;
+	bottom: 0;
+}
+
+#content {
+	clear: both;
+}
+
+.block {
+	width: 305px;
+	height: 205px;
+	float: left;
+	position: relative;
+	margin: 0 8px 30px 0;
+}
+
+.block-last {
+	margin-right: 0px !important;
+}
+
+.block .item-1-line {
+	position: absolute;
+	top: 55px;
+	left: 20px;
+}
+
+.block .item-2-line {
+	position: absolute;
+	top: 20px;
+	left: 28px;
+}
+
+.block-meishi {
+	background-image: url('meishi-block.png');
+}
+.block-ktv {
+	background-image: url('ktv-block.png');
+}
+.block-yule {
+	background-image: url('movie-block.png');
+}
+.block-jiudian {
+	background-image: url('jiudian-block.png');
+}
+
+/* 第二排 */
+.block-shuma {
+	background-image: url('shuma-block.png');
+}
+.block-liren {
+	background-image: url('liren-block.png');
+}
+.block-lvyou {
+	background-image: url('lvyou-block.png');
+}
+.block-fuwu {
+	background-image: url('fuwu-block.png');
+}

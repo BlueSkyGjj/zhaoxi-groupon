@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+	"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+	<!-- Properties -->
+	<bean lazy-init="true"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:webx-app.properties</value>
+		</property>
+	</bean>
+
+	<!-- ICache For APP -->
+	<!-- use cache4j -->
+	<bean id="cache4jConfig" lazy-init="true"
+		class="com.paic.webx.tool.cache.bean.Cache4jConfigBean">
+		<!-- 10M -->
+		<property name="maxMemorySize">
+			<value>10000000</value>
+		</property>
+		<property name="algorithm">
+			<value>lru</value>
+		</property>
+	</bean>
+	<bean id="cache4jApp" class="com.paic.webx.tool.cache.bean.Cache4jProxyFactoryBean">
+		<property name="cacheMode">
+			<value>sync</value>
+		</property>
+		<property name="configBean">
+			<ref local="cache4jConfig"></ref>
+		</property>
+	</bean>
+	<bean id="cacheDefault" destroy-method="destroy" init-method="init"
+		class="com.paic.webx.tool.cache.impl.Cache4jImpl">
+		<property name="cache">
+			<ref local="cache4jApp" />
+		</property>
+	</bean>
+	<!-- ICache For APP End -->
+
+	<!-- Web request refer -->
+	<bean id="jsonResolver" class="com.paic.webx.handler.impl.FastJsonResolver"
+		init-method="init">
+	</bean>
+	<bean id="tplResolver" class="com.paic.webx.handler.impl.Smarty4jTplResolver">
+	</bean>
+
+	<bean id="simpleHandler" class="com.paic.webx.handler.impl.SimpleRequestFilter">
+	</bean>
+	<bean id="multipartHandler" class="com.paic.webx.handler.impl.MultipartRequestFilter">
+	</bean>
+	<bean id="attributeHandler" class="com.paic.webx.handler.impl.AttributeRequestFilter">
+	</bean>
+	<!-- 
+	<bean id="jsonHandler" class="com.paic.webx.handler.impl.JsonRequestFilter">
+	</bean>
+	-->
+	<bean id="reqFilter" class="com.paic.webx.handler.impl.ChainHandler">
+		<property name="handlers">
+		<list>
+			<ref bean="simpleHandler" />
+			<ref bean="attributeHandler" />
+			<ref bean="multipartHandler" />
+		</list>
+		</property>
+	</bean>
+	<bean id="actionResultHandler" class="com.paic.webx.handler.impl.DefaultActionResultHandler">
+		<property name="jsonResolver">
+			<ref local="jsonResolver" />
+		</property>
+		<property name="tplResolver">
+			<ref local="tplResolver" />
+		</property>
+	</bean>
+
+	<!-- Database access refer -->
+	<bean id="defaultDsTarget" lazy-init="true"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass">
+			<value>${db_local_driver}</value>
+		</property>
+		<property name="jdbcUrl">
+			<value>${db_local_url}</value>
+		</property>
+		<property name="user">
+			<value>${db_local_user}</value>
+		</property>
+		<property name="password">
+			<value>${db_local_pwd}</value>
+		</property>
+
+		<property name="minPoolSize">
+			<value>${db_local_minPoolSize}</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>${db_local_maxPoolSize}</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>${db_local_maxIdleTime}</value>
+		</property>
+		<property name="acquireIncrement">
+			<value>${db_local_acquireIncrement}</value>
+		</property>
+		<property name="initialPoolSize">
+			<value>${db_local_initialPoolSize}</value>
+		</property>
+	</bean>
+	<bean id="defaultDs"
+		class="org.springframework.jdbc.datasource.TransactionAwareDataSourceProxy">
+		<constructor-arg>
+			<ref bean="defaultDsTarget" />
+		</constructor-arg>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource">
+			<ref bean="defaultDsTarget" />
+		</property>
+	</bean>
+
+	<!-- singleton -->
+	<bean id="groovyExecutor" class="com.paic.webx.core.executer.GroovyBizLocalImpl">
+	</bean>
+	<bean id="sqlExecutor" class="groovy.sql.Sql">
+		<constructor-arg>
+			<ref local="defaultDs" />
+		</constructor-arg>
+	</bean>
+</beans>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+	<head> 
+		<meta charset="utf-8" />
+		
+		<!-- Title -->
+		
+		<title>朝夕购用户中心</title> 
+		
+		<!-- CSS -->
+		
+		<link rel="stylesheet" href="../css/styles.css" /> 
+		
+	</head>
+	
+	<!-- Page specific body class chooses layout colour -->
+    <body class="blue">
+
+
+		<!-- Header -->
+		<div id="header">
+			<h1>朝夕购用户中心</h1>
+			<a href="" class="visit">Visit Site</a>
+			<p>
+				<strong>{if $s_user.mobile}{$s_user.mobile}{else}{$s_user.email}{/if}</strong>
+				|
+				<a href="{$app_name}/my/msg.htm">系统信息（{$msg.num}）</a>
+				|
+				<a href="{$app_name}/logout.htm">登出</a>
+			</p>
+		</div>
+		<!-- /End Header -->
+		
+		<!-- Main Area Container -->
+		<div id="container">
+			
+			<!-- Subheader -->
+			<div id="subheader" class="clearfix">
+				<h2>Tabular Data</h2>
+				<a href=""><span>Cancel</span></a>
+			</div>
+			<!-- /End Subheader -->
+			
+			<!-- Main Content Area -->
+			<div id="content">
+				<div id="inner">
+					
+					<!-- Showcase of all basic Html elements excluding forms -->
+					<h1>This is the primary heading and there should only be one of these per page</h1> 
+				    <p>A small paragraph to <em>emphasis</em> and show <strong>important</strong> bits.</p> 
+				    <ul> 
+				        <li>This is a list item</li> 
+				        <li>So is this - there could be more</li> 
+				        <li>Make sure to style list items to:
+				            <ul> 
+				                <li>Not forgetting child list items</li> 
+				                <li>Not forgetting child list items</li> 
+				                <li>Not forgetting child list items</li> 
+				                <li>Not forgetting child list items</li> 
+				            </ul> 
+				        </li> 
+				        <li>A couple more</li> 
+				        <li>top level list items</li> 
+				    </ul> 
+				    <p>Don't forget <strong>Ordered lists</strong>:</p> 
+				    <ol> 
+				       <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> 
+				       <li>Aliquam tincidunt mauris eu risus.
+				        <ol> 
+				            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> 
+				            <li>Aliquam tincidunt mauris eu risus.</li> 
+				        </ol> 
+				        </li> 
+				       <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> 
+				       <li>Aliquam tincidunt mauris eu risus.
+				    </ol> 
+				    <h2>A sub heading which is not as important as the first, but is quite imporant overall</h2> 
+				    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p> 
+				    <table> 
+				        <tr> 
+				            <th>Table Heading</th> 
+				            <th>Table Heading</th> 
+				        </tr> 
+				        <tr> 
+				            <td>table data</td> 
+				            <td>table data</td> 
+				        </tr> 
+				        <tr> 
+				            <td>table data</td> 
+				            <td>table data</td> 
+				        </tr> 
+				        <tr> 
+				            <td>table data</td> 
+				            <td>table data</td> 
+				        </tr> 
+				        <tr> 
+				            <td>table data</td> 
+				            <td>table data</td> 
+				        </tr> 
+				    </table>    
+				    <h3>A sub heading which is not as important as the second, but should be used with consideration</h3> 
+				    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p> 
+				    <blockquote><p>"Ooh - a blockquote! Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est."</p></blockquote> 
+				    <h4>A sub heading which is not as important as the second, but should be used with consideration</h4> 
+				    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p> 
+				    <pre>
+				    	<code> 
+#header h1 a { 
+	display: block; 
+	width: 300px; 
+	height: 80px; 
+}
+						</code>
+					</pre> 
+				    <h5>A sub heading which is not as important as the second, but should be used with consideration</h5> 
+				    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p> 
+				    <dl> 
+				  		<dt>Definition list</dt> 
+						<dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd> 
+					   	<dt>Lorem ipsum dolor sit amet</dt> 
+					   	<dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd> 
+					</dl> 
+					<h6>This heading plays a relatively small bit part role, if you use it at all</h6> 
+				    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p> 
+					<!-- /End Basic Html Element Showcase -->
+				
+				</div>			
+			</div>
+			<!-- /End Content Area -->
+			
+		</div>
+		<!-- End Main Area Container -->
+		
+		<!-- Profile Messages - initially hidden -->
+		<div id="messages" style="display: none">
+			
+			<!-- Messages -->
+			<h3>3 Messages</h3> 
+		 	<p> 
+				<strong>17th May 2009</strong> by Admin<br /> 
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue.
+				<small><a href="#" title="Remove message">Remove</a></small> 
+			</p> 
+		 	<p> 
+				<strong>2nd May 2009</strong> by Jane Doe<br /> 
+				Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.
+				<small><a href="#" title="Remove message">Remove</a></small> 
+			</p>
+			<!-- /End Messages -->
+			
+			<!-- New Message -->
+			<form action=""> 
+				<h4>New Message</h4>
+				<ul>
+					<li>
+						<label>Send to:</label>
+						<input type="text"/>
+					</li>
+					<li>
+						<label>Message:</label>
+						<textarea cols="79" rows="5"></textarea>
+					</li>
+					<li>
+						<a class="button">Send</a>
+					</li>
+				</ul>
+			</form>
+			<!-- /End New Message -->
+			
+		</div>
+		<!-- /End Profile Messages--> 
+	
+	<!-- Load Jquery -->
+		<script src="../../../../ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<script src="../js/custom.jquery.js"></script>
+	<!-- /End Jquery -->
+	
+		
+    </body>
+	
+</html>
+
+<!-- (c) QwibbleDesigns 2010 - removed upon purchase -->

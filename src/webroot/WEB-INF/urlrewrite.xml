@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 4.0//EN" "http://www.tuckey.org/res/dtds/urlrewrite4.0.dtd">
+
+<urlrewrite>
+  <rule>
+    <from>^/([^/]+).htm$</from>
+    <to>/ctrl/IndexAction/$1.gy</to>
+  </rule>
+
+  <rule>
+    <from>/pay/(.+).htm</from>
+    <to>/ctrl/PayAction/$1.gy</to>
+  </rule>
+  <rule>
+    <from>/orderlist/(.+).htm</from>
+    <to>/ctrl/OrderAction/$1.gy</to>
+  </rule>
+  <rule>
+    <from>/orderdel/(.+).htm</from>
+    <to>/ctrl/OrderAction/del.gy?id=$1</to>
+  </rule>
+  <rule>
+    <from>/orderpay/(.+).htm</from>
+    <to>/ctrl/OrderAction/pay.gy?id=$1</to>
+  </rule>
+  <rule>
+    <from>/order/(.+).htm</from>
+    <to>/ctrl/OrderAction/one.gy?id=$1</to>
+  </rule>
+
+  <!-- Product -->
+  <rule>
+    <from>/cate/(.+)/(.+)/(.+)/(.+).htm</from>
+    <to>/ctrl/ProductAction/list.gy?cate=$1&amp;addr=$2&amp;pricerange=$3&amp;seatnum=$4&amp;sortBy=latest</to>
+  </rule>
+  <rule>
+    <from>/hot/(.+)/(.+)/(.+)/(.+).htm</from>
+    <to>/ctrl/ProductAction/list.gy?cate=$1&amp;addr=$2&amp;pricerange=$3&amp;seatnum=$4&amp;sortBy=hot</to>
+  </rule>
+  <rule>
+    <from>/asc/(.+)/(.+)/(.+)/(.+).htm</from>
+    <to>/ctrl/ProductAction/list.gy?cate=$1&amp;addr=$2&amp;pricerange=$3&amp;seatnum=$4&amp;sortBy=asc</to>
+  </rule>
+  <rule>
+    <from>/desc/(.+)/(.+)/(.+)/(.+).htm</from>
+    <to>/ctrl/ProductAction/list.gy?cate=$1&amp;addr=$2&amp;pricerange=$3&amp;seatnum=$4&amp;sortBy=desc</to>
+  </rule>
+  <rule>
+    <from>/latest/(.+)/(.+)/(.+)/(.+).htm</from>
+    <to>/ctrl/ProductAction/list.gy?cate=$1&amp;addr=$2&amp;pricerange=$3&amp;seatnum=$4&amp;sortBy=latest</to>
+  </rule>
+
+  <rule>
+    <from>/deal/(.+).htm</from>
+    <to>/ctrl/ProductAction/one.gy?id=$1</to>
+  </rule>
+
+  <rule>
+    <from>/cart/(.+).htm</from>
+    <to>/ctrl/CartAction/cart.gy?id=$1</to>
+  </rule>
+
+  <!-- Auth -->
+  <rule>
+    <from>/auth/(.+).htm</from>
+    <to>/ctrl/AuthAction/$1.gy</to>
+  </rule>
+  <rule>
+    <from>/manage/(.+).htm</from>
+    <to>/ctrl/ManageAction/$1.gy</to>
+  </rule>
+  <rule>
+    <from>/manageuser/(.+).htm</from>
+    <to>/ctrl/ManageUserAction/$1.gy</to>
+  </rule>
+  <rule>
+    <from>/managestore/(.+).htm</from>
+    <to>/ctrl/ManageStoreAction/$1.gy</to>
+  </rule>
+  <rule>
+    <from>/managemailsms/(.+).htm</from>
+    <to>/ctrl/ManageMailSmsAction/$1.gy</to>
+  </rule>
+  <rule>
+    <from>/manageorder/(.+).htm</from>
+    <to>/ctrl/ManageOrderAction/$1.gy</to>
+  </rule>
+  <rule>
+    <from>/seller/(.+).htm</from>
+    <to>/ctrl/ManageSellerAction/$1.gy</to>
+  </rule>
+  <rule>
+    <from>/my/(.+).htm</from>
+    <to>/ctrl/MyAction/$1.gy</to>
+  </rule>
+  <rule>
+    <from>/test/(.+).htm</from>
+    <to>/ctrl/TestAction/$1.gy</to>
+  </rule>
+</urlrewrite>

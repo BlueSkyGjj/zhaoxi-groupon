@@ -1,0 +1,135 @@
+<?xml version="1.0"	encoding="UTF-8"?>
+<project name="webx-core" default="build_war">
+	<property file="build.properties" />
+
+	<property environment="env" />
+
+	<property name="base.dir" value="." />
+
+	<property name="cc.dir" value="${base.dir}/src" />
+	<property name="bin.dir" value="${base.dir}/bin" />
+	<property name="lib.dir" value="${base.dir}/lib" />
+
+	<property name="war.dir" value="${cc.dir}/webroot" />
+
+	<property name="dist.dir" value="${base.dir}/dist" />
+	<property name="dist.app.dir" value="${dist.dir}/app" />
+	<property name="dist.war.dir" value="${dist.dir}/${app.name}" />
+
+	<property name="src.java.dir" value="${cc.dir}/java" />
+	<property name="src.groovy.dir" value="${cc.dir}/groovy" />
+
+	<property name="config.dir" value="${cc.dir}/config/app" />
+
+	<path id="path.lib">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<target name="init">
+		<mkdir dir="${dist.dir}" />
+		<mkdir dir="${dist.war.dir}" />
+		<mkdir dir="${dist.app.dir}" />
+		<mkdir dir="${dist.war.dir}/WEB-INF/lib" />
+		<mkdir dir="${dist.war.dir}/WEB-INF/classes" />
+		<mkdir dir="${bin.dir}" />
+	</target>
+	<target name="clean">
+		<delete dir="${dist.dir}" />
+		<delete dir="${bin.dir}" />
+		<delete file="${dist.app.dir}/${app.name}.war" />
+	</target>
+
+	<target name="copy_war">
+		<copy todir="${dist.war.dir}">
+			<fileset dir="${war.dir}" />
+		</copy>
+	</target>
+
+	<target name="test">
+		<echo message="${weblogic.jar}" />
+	</target>
+
+	<target name="build_war" depends="init,compile">
+		<copy todir="${dist.war.dir}">
+			<fileset dir="${war.dir}" />
+		</copy>
+		<copy todir="${dist.war.dir}/WEB-INF/lib">
+			<fileset dir="${lib.dir}">
+				<exclude name="ejb*.jar" />
+				<exclude name="servlet*.jar" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.war.dir}/WEB-INF/classes">
+			<fileset dir="${config.dir}">
+				<exclude name="application.xml" />
+			</fileset>
+		</copy>
+		<copy todir="${dist.war.dir}/WEB-INF/classes">
+			<fileset dir="${src.groovy.dir}">
+			</fileset>
+		</copy>
+		<!-- build war -->
+		<war destfile="${dist.app.dir}/${app.name}.war" webxml="${dist.war.dir}/WEB-INF/web.xml">
+			<fileset dir="${dist.war.dir}">
+			</fileset>
+		</war>
+	</target>
+
+	<target name="build_sae_war" depends="build_war">
+		<move file="${dist.war.dir}/WEB-INF/classes/webx-app.properties" 
+			tofile="${dist.war.dir}/WEB-INF/classes/webx-app-bak.properties">
+		</move>
+		<move file="${dist.war.dir}/WEB-INF/classes/qqconnectconfig.properties" 
+			tofile="${dist.war.dir}/WEB-INF/classes/qqconnectconfig-bak.properties">
+		</move>
+		<copy file="${dist.war.dir}/WEB-INF/classes/webx-app-sae.properties" 
+			tofile="${dist.war.dir}/WEB-INF/classes/webx-app.properties" overwrite="true">
+		</copy>
+		<copy file="${dist.war.dir}/WEB-INF/classes/qqconnectconfig-sae.properties" 
+			tofile="${dist.war.dir}/WEB-INF/classes/qqconnectconfig.properties" overwrite="true">
+		</copy>
+		<!-- build war -->
+		<war destfile="E:/Workspace-local/zhaoxigou/1/zhaoxigou.war" webxml="${dist.war.dir}/WEB-INF/web.xml">
+			<fileset dir="${dist.war.dir}">
+			</fileset>
+		</war>
+		<move file="${dist.war.dir}/WEB-INF/classes/webx-app-bak.properties" 
+			tofile="${dist.war.dir}/WEB-INF/classes/webx-app.properties">
+		</move>
+		<move file="${dist.war.dir}/WEB-INF/classes/qqconnectconfig-bak.properties" 
+			tofile="${dist.war.dir}/WEB-INF/classes/qqconnectconfig.properties">
+		</move>
+	</target>
+
+	<target name="compile" depends="compile_java,compile_groovy" />
+	<target name="compile_java">
+		<javac srcdir="${src.java.dir}" 
+			includes="com/**,org/**"
+			destdir="${bin.dir}" debug="true" debuglevel="lines,vars,source" 
+			classpathref="path.lib" 
+			encoding="utf-8" />
+
+		<jar jarfile="${lib.dir}/webx-core.jar" basedir="${bin.dir}" includes="com/**/*.class,org/dy/**/*.class" />
+		<delete>
+			<fileset dir="${bin.dir}" includes="**/*.class" />
+		</delete>
+	</target>
+	<!-- execute compiled classes -->
+	<target name="compile_groovy">
+		<taskdef name="groovyc" classpathref="path.lib" 
+			classname="org.codehaus.groovy.ant.Groovyc">
+		</taskdef>
+		<groovyc srcdir="${src.groovy.dir}" 
+			destdir="${bin.dir}" 
+			classpathref="path.lib" 
+			encoding="utf-8" />
+
+		<jar jarfile="${lib.dir}/webx-gy.jar" basedir="${bin.dir}" includes="ctrl/**/*.class,biz/**/*.class" />
+		<delete>
+			<fileset dir="${bin.dir}" includes="**/*.class" />
+		</delete>
+	</target>
+
+</project>

@@ -1,0 +1,198 @@
+body {
+	font: 12px/1.5 Tahoma,Helvetica,Arial,'\5b8b\4f53',sans-serif;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+a {
+	color: #36c;
+	text-decoration: none;
+}
+
+h3 {
+	font-size: 14px;
+}
+
+#header {
+	width: 990px;
+}
+
+#header .logo {
+	height: 100px;
+	width: 230px;
+	background: url(../image/logo.png);
+}
+
+#topnav {
+	border-bottom: 2px solid #3e88cd;
+	margin: 0 0 10px;
+	position: relative;
+	clear: both;
+}
+
+#topnav .link {
+	position: absolute;
+	right: 0;
+	top: 5px;
+}
+
+#page, #header, #content, #footer {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#page {
+	width: 990px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.grid-s140m0 .col-sub {
+	width: 140px;
+	margin-left: -100%;
+}
+
+.col-main {
+	float: left;
+	width: 100%;
+	min-height: 1px;
+}
+
+.col-sub {
+	float: left;
+}
+
+mytaobao-menu {
+	position: relative;
+	zoom: 1;
+}
+
+.service-button-container {
+	border: 1px solid #B1CAE8;
+	margin-bottom: 9px;
+}
+
+.link5, .link5:link, .link5:hover, .link5:visited, .link5:active {
+	color: #4581a9;
+	text-decoration: none;
+}
+
+.service-button {
+	font-weight: 700;
+	border: solid 1px #fff;
+	background: #E6EFF4;
+	background: -moz-linear-gradient(top,#E6EFF4,#fff);
+	background: -webkit-gradient(linear,0 0,0 100%,from(#E6EFF4),to(#fff));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E6EFF4', endColorstr='#ffffff');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#E6EFF4', endColorstr='#ffffff')";
+	display: block;
+	line-height: 25px;
+	text-indent: 20px;
+	position: relative;
+}
+
+.normal-arrow {
+	position: absolute;
+	top: 0;
+	right: 7px;
+}
+
+.mytaobao-bd {
+	border: 1px solid #d5e5f5;
+	box-shadow: 0 1px 3px #E9E9E9;
+	-moz-box-shadow: 0 1px 3px #E9E9E9;
+	-webkit-box-shadow: 0 1px 3px #E9E9E9;
+}
+
+#mytaobao-menu .mytaobao-bd:after {
+	content: '\0020';
+	display: block;
+	height: 0;
+	clear: both;
+}
+
+#mytaobao-menu .menu-box {
+	overflow: hidden;
+	zoom: 1;
+}
+
+.mytaobao-bar {
+	height: 28px;
+	line-height: 28px;
+	width: 100%;
+	cursor: pointer;
+	position: relative;
+	color: #4581A9;
+	margin-top: 5px;
+}
+
+.mytaobao-bar span {
+	font-weight: 700;
+	line-height: 26px;
+	font-size: 12px;
+	margin: 1px;
+	padding-left: 22px;
+	display: block;
+}
+
+.mytaobao-bar button {
+	position: absolute;
+	width: 9px;
+	height: 9px;
+	text-indent: -999em;
+	cursor: pointer;
+	top: 9px;
+	left: 6px;
+	border: 0;
+	overflow: hidden;
+	background-position: -132px -101px;
+}
+
+.first-bar {
+	background-repeat: repeat-x;
+	background-position: 0 -568px;
+	margin-top: 0;
+}
+
+.first-bar, .mytaobao-bar button {
+	background: url(../image/bg2.png) no-repeat;
+}
+
+#mytaobao-menu .group {
+	margin: 0 5px 5px;
+	clear: both;
+}
+
+#mytaobao-menu .group li {
+	padding: 2px 0;
+	float: left;
+	width: 100%;
+	clear: both;
+}
+
+menu .group span {
+	color: #414141;
+}
+
+#mytaobao-menu .group li.selected span, #mytaobao-menu .group li.selected span a {
+	background-color: #498cd0;
+	color: #FFF;
+	background-position: 0 -150px;
+}
+
+#mytaobao-menu .group li span a {
+	padding-left: 18px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+	display: block;
+	color: #414141;
+	text-decoration: none;
+}

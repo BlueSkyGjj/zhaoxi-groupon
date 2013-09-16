@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+	<title>朝夕购 - 漯河朝夕购将打造漯河团购网第一品牌</title> 
+	<meta name="description" content="朝夕购是漯河最大的B2C加团购网站，漯河地区目前唯一一家有正规资质团购网站，增值电信业务许可证 豫B2-20120026-7 朝夕购客服电话0395-3291777" /> 
+	<meta name="keywords" content="朝夕购，漯河朝夕购，zhaoxigou，朝夕够，朝夕团购，爱趣，爱趣团购网，漯河首家电商，商城，漯河首家商城，漯河团购，团购，漯河网购，商城，漯河商城，漯河首家电商，首家电商，爱去，爱去团购，哎趣团购网，爱去团购网，爱去，漯河团购网，漯河团购网站，" /> 
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
+	<link rel="stylesheet" href="metro-index.css" /> 
+	<script src="../public/jquery-1.8.3.min.js"></script>
+	</head>
+
+	<body>
+	<div id="wrapper">
+		<div id="header">
+			<div class="logo"></div>
+			<div class="city">
+				<div class="city-name">漯河</div>
+			</div>
+			<div class="login-opt">
+				<div class="signup"><a href="../signup.htm">注　册</a></div>
+				<div class="login"><a href="../login.htm">登　录</a></div>
+			</div>
+		</div>
+		<div id="content">
+			<div class="block block-meishi">
+				<div class="item-1-line item-meishi">
+					<a href="../latest/meishi/all.htm" title="美食"><img src="meishi.png" border="0" /></a>
+				</div>
+			</div>
+			<div class="block block-ktv">
+				<div class="item-1-line item-ktv">
+					<a href="../latest/ktv/all.htm" title="KTV"><img src="ktv.png" border="0" /></a>
+				</div>
+			</div>
+			<div class="block block-yule">
+				<div class="item-2-line item-yule">
+					<a href="../latest/dianying/all.htm" title="电影娱乐"><img src="movie.png" border="0" /></a>
+				</div>
+			</div>
+			<div class="block block-last block-jiudian">
+				<div class="item-1-line item-jiudian">
+					<a href="../latest/jiudian/all.htm" title="酒店"><img src="jiudian.png" border="0" /></a>
+				</div>
+			</div>
+
+
+			<div class="block block-shuma">
+				<div class="item-1-line item-shuma">
+					<a href="../latest/shuma/all.htm" title="数码"><img src="shuma.png" border="0" /></a>
+				</div>
+			</div>
+			<div class="block block-liren">
+				<div class="item-1-line item-liren">
+					<a href="../latest/liren/all.htm" title="丽人"><img src="liren.png" border="0" /></a>
+				</div>
+			</div>
+			<div class="block block-lvyou">
+				<div class="item-1-line item-lvyou">
+					<a href="../latest/lvyou/all.htm" title="旅游"><img src="lvyou.png" border="0" /></a>
+				</div>
+			</div>
+			<div class="block block-last block-fuwu">
+				<div class="item-2-line item-fuwu">
+					<a href="../latest/fuwu/all.htm" title="生活服务"><img src="fuwu.png" border="0" /></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script language="javascript">
+	$(function(){
+		// 根据窗口高度调整高度
+		var windowHeight = $(window).height();
+		if(windowHeight){
+			var marginBotWrapper = 70;
+			var marginBotHeader = 30;
+			var marginBotBlock = 30;
+
+			var marginBotAll = marginBotWrapper + marginBotHeader + marginBotBlock * 2;
+			
+			var heightNoMargin = 100 + 205 * 2;
+			var heightFix = 30;
+			if(windowHeight > heightNoMargin + marginBotAll + heightFix){
+				var heightMargin = windowHeight - heightNoMargin;
+				$('#wrapper').css('margin-bottom', marginBotWrapper / marginBotAll * heightMargin);
+				$('#header').css('margin-bottom', marginBotHeader / marginBotAll * heightMargin);
+				$('.block').css('margin-bottom', marginBotBlock / marginBotAll * heightMargin);
+			}
+		}
+	});
+	</script>
+	</body>
+</html>
